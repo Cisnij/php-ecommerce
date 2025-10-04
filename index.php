@@ -21,7 +21,7 @@ require_once __DIR__ . "/controller/site/CategoryController.php";
 require_once __DIR__ . "/controller/site/CartController.php";
 require_once __DIR__ . "/controller/site/OrderController.php";
 require_once __DIR__ . "/controller/site/CheckoutController.php";
-
+require_once __DIR__ . "/controller/site/EditProfileController.php";
 //controller Admin (Added from the first file)
 require_once __DIR__ . "/controller/admin/HomeAdminController.php";
 require_once __DIR__ . "/controller/admin/ProductAdminController.php";
@@ -52,7 +52,7 @@ $categoryController = new CategoryController($categoryModel);
 $cartController= new CartController($cartModel,$productsModel);
 $orderController= new OrderController($orderModel,$productsModel,$orderItemsModel);
 $checkoutController= new CheckoutController($cartModel,$orderModel,$productsModel,$orderItemsModel,$couponModel,$couponUsageModel);
-
+$editProfileController = new EditProfileController($userModel);
 //controller Admin (Added from the first file)
 $homeAdminController = new HomeAdminController($userModel, $productsModel, $orderModel);
 $productAdminController = new ProductAdminController($productsModel, $categoryModel);
@@ -109,6 +109,9 @@ switch ($action) {
         break;
     case 'success':
         include __DIR__ . '/view/site/success.php';
+        break;
+    case 'editProfile':
+        $editProfileController->editProfile();
         break;
 
     //========================================== ADMIN ROUTES (Added from the first file) ==========================================//

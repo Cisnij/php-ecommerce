@@ -2,8 +2,8 @@
 require_once __DIR__ . "/../../../model/Cart.php";
 $pdo = Database::getConnection();
 $cart = new Cart($pdo);
-$userId=$_SESSION['user']['id'];
-$totalItems= $cart->getTotalItems($userId);
+$userId = $_SESSION['user']['id'];
+$totalItems = $cart->getTotalItems($userId);
 ?>
 
 <!DOCTYPE html>
@@ -73,26 +73,35 @@ $totalItems= $cart->getTotalItems($userId);
 
       <!-- User -->
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="index.php?action=logout">Đăng xuất</a></li>
-        <li class="nav-item">
-          <span class="nav-link text-light">
-            Chào, <?= htmlspecialchars($_SESSION['user']['username'] ?? 'Khách') ?>
-          </span>
-        </li>
-        <ul class="navbar-nav">
-        <?php 
-        // Kiểm tra và chỉ hiển thị nút nếu vai trò là 'admin'
-        if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin'): 
-        ?>
-          <li class="nav-item ms-2">
-            <a href="index.php?action=homeAdmin" class="btn btn-warning btn-sm">
-                <i class="fas fa-user-shield"></i> Admin
-            </a>
+          <li class="nav-item">
+              <a class="nav-link" href="index.php?action=logout">Đăng xuất</a>
           </li>
-        <?php endif; ?>
 
+          <!-- Chào user -> link sửa thông tin cá nhân -->
+          <li class="nav-item">
+              <a class="nav-link text-light" href="index.php?action=editProfile">
+                  Chào, <?= htmlspecialchars($_SESSION['user']['username'] ?? 'Khách') ?>
+              </a>
+          </li>
+
+          <?php 
+          // Hiển thị nút admin nếu vai trò là admin
+          if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin'): 
+          ?>
+              <li class="nav-item ms-2">
+                  <a href="index.php?action=homeAdmin" class="btn btn-warning btn-sm">
+                      <i class="fas fa-user-shield"></i> Admin
+                  </a>
+              </li>
+          <?php endif; ?>
       </ul>
 
     </div>
   </div>
 </nav>
+
+<!-- Các phần nội dung khác của trang chủ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
