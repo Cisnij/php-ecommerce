@@ -57,13 +57,13 @@ $statusKeys = array_keys($statusMap);
                     </td>
                     <td class="d-flex flex-column flex-lg-row align-items-lg-center">
                         
-                        <a href="index.php?action=admin/orders/detail&id=<?= $order['id'] ?>" 
+                        <a href="/php-pj/admin/orders/detail&id=<?= $order['id'] ?>" 
                             class="btn btn-sm btn-primary mb-2 mb-lg-0 me-lg-2" 
                             title="Xem chi tiết đơn hàng #<?= $order['id'] ?>">
                                 <i class="fa-solid fa-eye me-1"></i> 
                             </a>
                         
-                        <form action="index.php?action=admin/orders/updateStatus" method="POST" class="d-flex align-items-center">
+                        <form action="/php-pj/admin/orders/updateStatus" method="POST" class="d-flex align-items-center">
                             <input type="hidden" name="id" value="<?= $order['id'] ?>">
                             
                             <select name="status" class="form-select-sm">

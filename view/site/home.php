@@ -25,7 +25,7 @@
 <!-- ==================== DANH MỤC ==================== -->
 <div class="category-filter py-3 border-bottom bg-gradient-light">
   <div class="container">
-    <form class="d-flex justify-content-center" method="get" action="index.php">
+    <form class="d-flex justify-content-center" method="get" action="/php-pj/home">
       <input type="hidden" name="action" value="home">
       <select class="form-select form-select-lg w-auto shadow-sm glass-select" name="category" onchange="this.form.submit()">
         <option value="all">Tất cả danh mục</option>
@@ -49,8 +49,8 @@
           <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="product-card glass-card shadow-hover h-100 d-flex flex-column">
               
-              <a href="index.php?action=productDetails&id=<?= $pd['id'] ?>"> 
-                <img src="view/image/<?= htmlspecialchars($pd['image']) ?>" 
+              <a href="/php-pj/productDetails&id=<?= $pd['id'] ?>"> 
+                <img src="/php-pj/view/image/<?= htmlspecialchars($pd['image']) ?>" 
                      class="product-img" 
                      alt="<?= htmlspecialchars($pd['name']) ?>">
               </a>
@@ -63,7 +63,7 @@
                   </p>
                 </div>
 
-                <form method="POST" action="index.php?action=home">
+                <form method="POST" action="/php-pj/home/">
                   <input type="hidden" name="product_id" value="<?= $pd['id'] ?>">
                   <input type="hidden" name="quantity" value="1">
                   <button type="submit" class="btn btn-gradient w-100 mt-2">Thêm vào giỏ hàng</button>

@@ -81,7 +81,7 @@
     <h1 class="text-center mb-4">Danh sách sản phẩm</h1>
     
     <!-- Bộ lọc danh mục -->
-    <form method="get" action="index.php" class="filter-form">
+    <form method="get" action="/php-pj/getProducts/" class="filter-form">
         <input type="hidden" name="action" value="getProducts">
         <div class="row g-3 align-items-center">
             <div class="col-md-4">
@@ -106,7 +106,7 @@
             <?php foreach ($products as $product): ?>
                 <div class="col product-card category-<?= $product['category_id'] ?>">
                     <div class="card h-100 shadow-sm">
-                        <a href="index.php?action=productDetails&id=<?= $product['id'] ?>" class="text-decoration-none">
+                        <a href= "/php-pj/productDetails&id=<?= $product['id'] ?>" class="text-decoration-none">
                             <img src="/php-pj/view/image/<?= htmlspecialchars($product['image']) ?>" 
                                  alt="<?= htmlspecialchars($product['name']) ?>">
                             <div class="card-body text-center">
@@ -116,7 +116,7 @@
                             </div>
                         </a>
 
-                        <form method="POST" action="index.php?action=getProducts" class="p-3">
+                        <form method="POST" action="/php-pj/getProducts/" class="p-3">
                             <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
                             <input type="hidden" name="quantity" value="1">
                             <button type="submit" class="btn btn-add-cart w-100 d-flex align-items-center justify-content-center gap-2">

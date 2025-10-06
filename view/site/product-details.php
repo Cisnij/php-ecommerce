@@ -62,7 +62,7 @@
   <div class="row align-items-start g-4">
     <!-- Ảnh sản phẩm -->
     <div class="col-md-6">
-      <img src="view/image/<?= htmlspecialchars($product['image']) ?>"
+      <img src="/php-pj/view/image/<?= htmlspecialchars($product['image']) ?>"
            class="img-fluid product-img"
            alt="<?= htmlspecialchars($product['name']) ?>">
     </div>
@@ -77,7 +77,7 @@
       <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
       <p class="fw-bold text-secondary">Số lượng còn: <?= $product['stock'] ?></p>
 
-      <form method="POST" action="index.php?action=productDetails&id=<?= $product['id'] ?>">
+      <form method="POST" action="/php-pj/productDetails&id=<?= $product['id'] ?>">
           <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
           <input type="hidden" name="quantity" value="1">
           <button type="submit" class="btn btn-primary">🛒 Thêm vào giỏ hàng</button>
@@ -90,7 +90,7 @@
     <h3 class="mb-4">⭐ Đánh giá sản phẩm</h3>
 
     <?php if (!$isRating): ?>
-      <form method="post" action="index.php?action=productDetails&id=<?= $product['id'] ?>" class="mb-4">
+      <form method="post" action="/php-pj/productDetails&id=<?= $product['id'] ?>" class="mb-4">
         <div class="mb-3 rating-stars">
           <label class="form-label d-block mb-2">Chọn số sao:</label>
           <div class="d-flex gap-2">
@@ -124,7 +124,7 @@
   <div class="mt-5">
     <h3 class="mb-4">💬 Bình luận</h3>
 
-    <form method="post" action="index.php?action=productDetails&id=<?= $product['id'] ?>" class="mb-4">
+    <form method="post" action="/php-pj/productDetails&id=<?= $product['id'] ?>" class="mb-4">
       <div class="mb-3">
         <textarea name="comment_text" rows="3" class="form-control" placeholder="Nhập bình luận..." required></textarea>
       </div>

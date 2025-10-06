@@ -41,7 +41,7 @@ class CheckoutController {
 
     public function index() {
         if (!isset($_SESSION['user'])) {
-            header('Location: /php-pj/index.php?action=login');
+            header('Location: php-pj/login');
             exit;
         }
 
@@ -50,7 +50,7 @@ class CheckoutController {
         $totalItems = $this->cartModel->getTotalItems($user_id);
 
         if ($totalItems == 0) {
-            header('Location: /php-pj/index.php');
+            header('Location: /php-pj/home');
             exit;
         }
 
@@ -182,7 +182,7 @@ class CheckoutController {
                         error_log("Mailer Error: {$mail->ErrorInfo}");
                     }
 
-                    header('Location: /php-pj/index.php?action=success');
+                    header('Location: /php-pj/success');
                     exit;
                 } else {
                     $error = 'Có lỗi xảy ra khi tạo đơn hàng. Vui lòng thử lại.';

@@ -61,8 +61,13 @@ $staffAdminController = new StaffAdminController($userModel);
 $orderAdminController = new OrderAdminController($orderModel, $userModel);
 $discountAdminController = new DiscountAdminController($couponModel);
 
-$action = $_GET['action'] ?? 'home';
-switch ($action) {
+// Lấy URL từ rewrite
+$url = $_GET['url'] ?? '';            // lấy phần sau domain
+$segments = explode('/', trim($url, '/'));   // tách thành mảng
+$main = isset($segments[0]) && isset($segments[1]) ? $segments[0] . '/' . $segments[1] : ($segments[0] ?? 'home'); // phần chính, if có tồn tại 2 thành phần thì sẽ thêm / ở giữa đó
+
+
+switch ($main) {
     //========================================== SITE ROUTES ==========================================//
     case 'login':
         $authController->login();
@@ -221,6 +226,6 @@ switch ($action) {
         break;
 
     default:
-        header("Location: index.php?action=home");
+        header("Location: /php-pj/home");
         exit;
 }

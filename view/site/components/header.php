@@ -91,7 +91,7 @@ $totalItems = $userId ? $cart->getTotalItems($userId) : 0;
     <div class="container">
 
         <!-- Logo -->
-        <a class="navbar-brand" href="index.php?action=home">
+        <a class="navbar-brand" href="/php-pj/home">
             <i class="fa-solid fa-clock"></i> WatchShop
         </a>
 
@@ -106,19 +106,19 @@ $totalItems = $userId ? $cart->getTotalItems($userId) : 0;
             <!-- Menu trái -->
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=order">
+                    <a class="nav-link" href="/php-pj/order">
                         <i class="fa-solid fa-box"></i> Đơn hàng
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=getProducts">
+                    <a class="nav-link" href="/php-pj/getProducts">
                         <i class="fa-solid fa-list"></i> Sản phẩm
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link position-relative" href="index.php?action=cart">
+                    <a class="nav-link position-relative" href="/php-pj/cart">
                         <i class="fa fa-shopping-cart"></i> Giỏ hàng
                         <?php if ($totalItems > 0): ?>
                             <span class="badge bg-danger position-absolute top-0 start-100 translate-middle">
@@ -130,7 +130,7 @@ $totalItems = $userId ? $cart->getTotalItems($userId) : 0;
             </ul>
 
             <!-- Form tìm kiếm -->
-            <form class="d-flex me-3" method="get" action="index.php">
+            <form class="d-flex me-3" method="get" action="/php-pj/home">
                 <input type="hidden" name="action" value="home">
                 <input class="form-control me-2" type="text" name="keyword" placeholder="Tìm kiếm..."
                        value="<?= htmlspecialchars($_GET['keyword'] ?? '') ?>">
@@ -143,27 +143,27 @@ $totalItems = $userId ? $cart->getTotalItems($userId) : 0;
             <ul class="navbar-nav">
                 <?php if (isset($_SESSION['user'])): ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=logout">
+                        <a class="nav-link" href="/php-pj/logout/">
                             <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="index.php?action=editProfile">
+                        <a class="nav-link text-white" href="/php-pj/editProfile">
                             <i class="fa-solid fa-user"></i> Chào, <?= htmlspecialchars($_SESSION['user']['username']) ?>
                         </a>
                     </li>
 
                     <?php if ($_SESSION['user']['role'] === 'admin'): ?>
                         <li class="nav-item ms-2">
-                            <a href="index.php?action=homeAdmin" class="btn btn-warning btn-sm">
+                            <a href="/php-pj/homeAdmin" class="btn btn-warning btn-sm">
                                 <i class="fas fa-user-shield"></i> Admin
                             </a>
                         </li>
                     <?php endif; ?>
                 <?php else: ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=login">
+                        <a class="nav-link" href="/php-pj/login">
                             <i class="fa-solid fa-right-to-bracket"></i> Đăng nhập
                         </a>
                     </li>
@@ -173,7 +173,5 @@ $totalItems = $userId ? $cart->getTotalItems($userId) : 0;
     </div>
 </nav>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-</body>
-</html>
+

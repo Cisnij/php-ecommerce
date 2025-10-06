@@ -10,7 +10,7 @@ class EditProfileController {
 
     public function editProfile(): void {
         if (!isset($_SESSION['user'])) {
-            header("Location: /php-pj/index.php?action=login");
+            header("Location: /php-pj/login");
             exit;
         }
         $userId = $_SESSION['user']['id'];
@@ -22,13 +22,13 @@ class EditProfileController {
             $confirmPassword = $_POST['confirm_password'] ?? '';
             if (empty($fullname) || empty($email)) {
                 $_SESSION['profile-error'] = "Vui lòng nhập đầy đủ họ tên và email!";
-                header("Location: /php-pj/index.php?action=editProfile");
+                header("Location: /php-pj/editProfile");
                 exit;
             }
 
             if (!empty($password) && $password !== $confirmPassword) {
                 $_SESSION['profile-error'] = "Mật khẩu xác nhận không khớp!";
-                header("Location: /php-pj/index.php?action=editProfile");
+                header("Location: /php-pj/editProfile");
                 exit;
             }
             $data = [
@@ -46,7 +46,7 @@ class EditProfileController {
             } else {
                 $_SESSION['profile-error'] = "Cập nhật thất bại!";
             }
-            header("Location: /php-pj/index.php?action=editProfile");
+            header("Location: /php-pj/editProfile");
             exit;
         }
         $user = $this->userModel->getById($userId);

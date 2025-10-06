@@ -115,7 +115,7 @@
                     <td><?= $item['quantity'] ?></td>
                     <td class="fw-bold"><?= number_format($subtotal, 0, ',', '.') ?>₫</td>
                     <td>
-                        <form action="index.php?action=cart" method="POST" onsubmit="return confirm('Xóa sản phẩm này khỏi giỏ?')">
+                        <form action="/php-pj/cart" method="POST" onsubmit="return confirm('Xóa sản phẩm này khỏi giỏ?')">
                             <input type="hidden" name="product_id" value="<?= $item['product_id']; ?>">
                             <button type="submit" class="btn btn-sm btn-danger">Xóa</button>
                         </form>
@@ -129,7 +129,7 @@
             <div class="cart-total">
                 Tổng cộng: <span><?= number_format($total, 0, ',', '.') ?>₫</span>
             </div>
-            <a href="index.php?action=checkout" class="btn btn-success btn-lg mt-3">
+            <a href="/php-pj/checkout" class="btn btn-success btn-lg mt-3">
                 Thanh toán
             </a>
         </div>

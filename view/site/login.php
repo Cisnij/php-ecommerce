@@ -122,7 +122,7 @@
             <?php unset($_SESSION['login-error']); ?>
         <?php endif; ?>
 
-        <form method="post" action="index.php?action=login">
+        <form method="post" action="/php-pj/login/">
             <div class="mb-3">
                 <label for="username" class="form-label">Tài khoản</label>
                 <input type="text" class="form-control" id="username" name="username" placeholder="Nhập tài khoản" required>
@@ -138,7 +138,7 @@
 
         <p class="text-center mt-3">
             Chưa có tài khoản?
-            <a href="index.php?action=register">Đăng ký ngay</a>
+            <a href="/php-pj/register/">Đăng ký ngay</a>
         </p>
     </div>
 

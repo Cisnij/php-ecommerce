@@ -77,7 +77,7 @@
         <?php endif; ?>
 
         <!-- Form Đăng ký -->
-        <form method="post" action="index.php?action=register">
+        <form method="post" action="/php-pj/register/">
             <div class="mb-3">
                 <label for="fullname" class="form-label">Họ và tên</label>
                 <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Nhập họ và tên" required>
@@ -112,7 +112,7 @@
         </form>
 
         <p class="text-center mt-3 mb-0">
-            Đã có tài khoản? <a href="/php-pj/index.php?action=login">Đăng nhập</a>
+            Đã có tài khoản? <a href="/php-pj/login">Đăng nhập</a>
         </p>
     </div>
 </div>

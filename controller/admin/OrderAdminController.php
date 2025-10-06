@@ -22,7 +22,7 @@ class OrderAdminController {
             session_start();
         }
         if (!isset($_SESSION['user']) || ($_SESSION['user']['role'] ?? 'user') !== 'admin') { 
-            header("Location: /php-pj/index.php?action=login");
+            header("Location: /php-pj/login");
             exit;
         }
     }
@@ -50,7 +50,7 @@ class OrderAdminController {
 
             if (!isset(self::STATUS_MAP[$newStatusKey])) {
                 $_SESSION['error_message'] = "Trạng thái '{$newStatusKey}' không hợp lệ.";
-                header("Location: index.php?action=admin/orders");
+                header("Location: /php-pj/admin/orders");
                 exit;
             }
             $newDbValue = self::STATUS_MAP[$newStatusKey]['db_value'];
@@ -77,7 +77,7 @@ class OrderAdminController {
             }
         }
 
-        header("Location: index.php?action=admin/orders");
+        header("Location: /php-pj/admin/orders");
         exit;
     }
 
@@ -88,14 +88,14 @@ class OrderAdminController {
         
         if (!$orderId) {
             $_SESSION['error_message'] = "Không tìm thấy ID đơn hàng.";
-            header('Location: index.php?action=admin/orders');
+            header('Location: /php-pj/admin/orders');
             exit;
         }
         $orderDetail = $this->orderModel->getOrderById($orderId); 
         
         if (!$orderDetail) {
             $_SESSION['error_message'] = "Đơn hàng ID {$orderId} không tồn tại.";
-            header('Location: index.php?action=admin/orders');
+            header('Location: /php-pj/admin/orders');
             exit;
         }
         

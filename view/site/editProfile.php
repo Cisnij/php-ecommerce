@@ -17,7 +17,7 @@
     <?php endif; ?>
 
     <!-- ✅ Chỉ gọi editProfile -->
-    <form method="post" action="/php-pj/index.php?action=editProfile">
+    <form method="post" action="/php-pj/editProfile/">
         <div class="mb-3">
             <label class="form-label">Tên đăng nhập</label>
             <input type="text" class="form-control" value="<?= htmlspecialchars($user['username']) ?>" readonly>
