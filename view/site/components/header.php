@@ -77,7 +77,6 @@ $totalItems = $cart->getTotalItems($userId);
               <a class="nav-link" href="index.php?action=logout">Đăng xuất</a>
           </li>
 
-          <!-- Chào user -> link sửa thông tin cá nhân -->
           <li class="nav-item">
               <a class="nav-link text-light" href="index.php?action=editProfile">
                   Chào, <?= htmlspecialchars($_SESSION['user']['username'] ?? 'Khách') ?>
@@ -100,7 +99,6 @@ $totalItems = $cart->getTotalItems($userId);
   </div>
 </nav>
 
-<!-- Các phần nội dung khác của trang chủ -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

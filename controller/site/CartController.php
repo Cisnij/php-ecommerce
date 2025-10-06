@@ -44,7 +44,7 @@ class CartController {
                 exit;
             }
             $this->cartModel->addToCart($user_id, $product_id, $quantity);
-            exit;
+            return;
         }
     }
 }

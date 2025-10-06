@@ -68,8 +68,8 @@ switch ($action) {
         $authController->login();
         break;
     case 'home':
-        $homeController->home();
         $cartController->add();
+        $homeController->home();
         break;
     case 'logout':
         $authController->logout();
@@ -78,6 +78,7 @@ switch ($action) {
         $authController->register();
         break;
     case 'getProducts':
+        $cartController->add();
         $products = $productController->getAll();  // Lấy danh sách sản phẩm
         $categories = $categoryController->getAll();  // Lấy danh sách danh mục
         $cate_id=$_GET['category'] ?? 'all';// lấy ra id của cate từ frontend
@@ -89,11 +90,12 @@ switch ($action) {
             $products = $productController->getProductCategory($cate_id);
         }
         include __DIR__ . '/view/site/products.php';
-        $cartController->add();
+        
         break;
     case 'productDetails':
-        $productController->productDetails();
         $cartController->add();
+        $productController->productDetails();
+        
         break;
     case 'cart':
         $cartController->index();
