@@ -10,7 +10,7 @@ class UserAdminController {
 
     private function adminCheck(): void {
         if (!isset($_SESSION['user']) || ($_SESSION['user']['role'] ?? 'user') !== 'admin') { 
-            header("/php-pj/login");
+            header("Location: /php-pj/login");
             exit;
         }
     }

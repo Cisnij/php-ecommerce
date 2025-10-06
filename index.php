@@ -62,10 +62,11 @@ $orderAdminController = new OrderAdminController($orderModel, $userModel);
 $discountAdminController = new DiscountAdminController($couponModel);
 
 // Lấy URL từ rewrite
-$url = $_GET['url'] ?? '';            // lấy phần sau domain
-$segments = explode('/', trim($url, '/'));   // tách thành mảng
-$main = isset($segments[0]) && isset($segments[1]) ? $segments[0] . '/' . $segments[1] : ($segments[0] ?? 'home'); // phần chính, if có tồn tại 2 thành phần thì sẽ thêm / ở giữa đó
-
+// Lấy và lọc URL
+$url = isset($_GET['url']) ? trim($_GET['url'], '/') : '';
+$url = filter_var($url, FILTER_SANITIZE_URL);
+$segments = $url === '' ? [] : explode('/', $url);// Tách URL thành mảng các segment
+$main = implode('/', $segments);
 
 switch ($main) {
     //========================================== SITE ROUTES ==========================================//
